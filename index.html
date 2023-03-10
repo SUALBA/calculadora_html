@@ -1,0 +1,85 @@
+!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+<style>
+.calc-body {
+    width: 300px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    text-align: center;
+}
+.calc-btn {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    width: 50px;
+    margin: 0 5px;
+    font-size: 18px;
+    text-align: center;
+}
+.calc-btn:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+.calc-result {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="calc-body">
+    <h2>Calculator</h2>
+    <div class="calc-result">
+        <span id="result"></span>
+    </div>
+    <input type="text" id="input" />
+    <div class="calc-buttons">
+        <button class="calc-btn" onclick="clearInput()">C</button>
+        <button class="calc-btn" onclick="addNumber('7')">7</button>
+        <button class="calc-btn" onclick="addNumber('8')">8</button>
+        <button class="calc-btn" onclick="addNumber('9')">9</button>
+        <button class="calc-btn" onclick="addOperator('/')">/</button>
+        <button class="calc-btn" onclick="addNumber('4')">4</button>
+        <button class="calc-btn" onclick="addNumber('5')">5</button>
+        <button class="calc-btn" onclick="addNumber('6')">6</button>
+        <button class="calc-btn" onclick="addOperator('*')">*</button>
+        <button class="calc-btn" onclick="addNumber('1')">1</button>
+        <button class="calc-btn" onclick="addNumber('2')">2</button>
+        <button class="calc-btn" onclick="addNumber('3')">3</button>
+        <button class="calc-btn" onclick="addOperator('-')">-</button>
+        <button class="calc-btn" onclick="addNumber('0')">0</button>
+        <button class="calc-btn" onclick="addDecimal()">.</button>
+        <button class="calc-btn" onclick="calculate()">=</button>
+        <button class="calc-btn" onclick="addOperator('+')">+</button>
+    </div>
+</div>
+
+<script>
+    var input = document.getElementById('input');
+    var result = document.getElementById('result');
+    function addNumber(number) {
+        input.value += number;
+    }
+    function addOperator(operator) {
+        input.value += operator;
+    }
+    function addDecimal() {
+        input.value += '.';
+    }
+    function clearInput() {
+        input.value = '';
+    }
+    function calculate() {
+        result.innerHTML = eval(input.value);
+    }
+</script>
+
+</body>
+</html>
